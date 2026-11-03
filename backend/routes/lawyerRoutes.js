@@ -1,0 +1,11 @@
+const router = require('express').Router();
+const { protect, authorize } = require('../middleware/auth');
+const upload = require('../middleware/upload');
+const { getAllLawyers, getLawyerProfile, updateProfile, uploadDocuments, setTimeSlots, getLawyerDashboard } = require('../controllers/lawyerController');
+router.get('/', getAllLawyers);
+router.get('/dashboard', protect, authorize('lawyer'), getLawyerDashboard);
+router.get('/:id', getLawyerProfile);
+router.put('/profile', protect, authorize('lawyer'), updateProfile);
+router.post('/documents', protect, authorize('lawyer'), upload.array('documents', 5), uploadDocuments);
+router.put('/timeslots', protect, authorize('lawyer'), setTimeSlots);
+module.exports = router;

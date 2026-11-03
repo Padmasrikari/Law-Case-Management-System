@@ -1,0 +1,12 @@
+const router = require('express').Router();
+const { protect, authorize } = require('../middleware/auth');
+const upload = require('../middleware/upload');
+const { createCase, getCases, getCaseById, updateCase, addHearing, uploadCaseDocuments, addTimelineEntry } = require('../controllers/caseController');
+router.post('/', protect, authorize('lawyer'), createCase);
+router.get('/', protect, getCases);
+router.get('/:id', protect, getCaseById);
+router.put('/:id', protect, authorize('lawyer'), updateCase);
+router.post('/:id/hearings', protect, authorize('lawyer'), addHearing);
+router.post('/:id/documents', protect, authorize('lawyer'), upload.array('documents', 10), uploadCaseDocuments);
+router.post('/:id/timeline', protect, authorize('lawyer'), addTimelineEntry);
+module.exports = router;

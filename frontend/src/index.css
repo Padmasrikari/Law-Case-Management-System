@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: #f8fafc; }
+
+.card { @apply bg-white rounded-2xl shadow-sm border border-gray-100; }
+.btn-primary { @apply bg-primary-600 text-white px-6 py-2.5 rounded-xl font-medium hover:bg-primary-700 transition-all duration-200 flex items-center gap-2; }
+.btn-secondary { @apply bg-white text-primary-600 px-6 py-2.5 rounded-xl font-medium border border-primary-200 hover:bg-primary-50 transition-all duration-200 flex items-center gap-2; }
+.btn-danger { @apply bg-red-500 text-white px-4 py-2 rounded-xl font-medium hover:bg-red-600 transition-all duration-200; }
+.input-field { @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-400 transition-all; }
+.badge-verified { @apply inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-medium; }
+.badge-pending { @apply inline-flex items-center gap-1 bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full font-medium; }
+.badge-status { @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
